@@ -15,7 +15,7 @@ router.post('/', (req, res, next) => {
     }
     res.status(201).json({
        cacamba
-    })
+    });
 });
 
 router.put('/', (req, res, next) => {
