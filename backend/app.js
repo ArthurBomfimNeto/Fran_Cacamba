@@ -6,6 +6,8 @@ const cors = require('cors')
 
 const rotaCacamba = require('./routes/cacamba');
 const rotaCliente = require('./routes/cliente')
+const rotaMotorista = require('./routes/motorista')
+const rotaOrdemServico = require('./routes/ordemServico')
 
 // Ele fica escutando o serviço e quando eu passo uma rota ele vai entra monitora toda a execução e retorna um log 
 server.use(morgan('dev')) 
@@ -14,7 +16,9 @@ server.use(bodyParser.json())// só vai aceitar formato json no body
 
 server.use(cors())
 server.use('/cacamba', rotaCacamba);
-server.use('/cliente',rotaCliente);
+server.use('/cliente', rotaCliente);
+server.use('/motorista', rotaMotorista);
+server.use('/ordemServico', rotaOrdemServico)
 
 
 //uma vez que ele passa por todas as rotas e não for chamadas elas ele entra aqui 
