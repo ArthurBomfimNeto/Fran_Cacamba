@@ -8,6 +8,7 @@ const rotaCacamba = require('./routes/cacamba');
 const rotaCliente = require('./routes/cliente')
 const rotaMotorista = require('./routes/motorista')
 const rotaOrdemServico = require('./routes/ordemServico')
+const rotaCartao = require('./routes/cartao')
 
 // Ele fica escutando o serviço e quando eu passo uma rota ele vai entra monitora toda a execução e retorna um log 
 server.use(morgan('dev')) 
@@ -19,6 +20,7 @@ server.use('/cacamba', rotaCacamba);
 server.use('/cliente', rotaCliente);
 server.use('/motorista', rotaMotorista);
 server.use('/ordemServico', rotaOrdemServico)
+server.use('/cartao' , rotaCartao)
 
 
 //uma vez que ele passa por todas as rotas e não for chamadas elas ele entra aqui 
