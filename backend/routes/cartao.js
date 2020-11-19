@@ -1,55 +1,15 @@
 const express = require('express')
 const route = express.Router()
+const cartaoController = require('../controllers/cartao.controller')
+route.get('/', cartaoController.get)
 
+route.get('/:id', cartaoController.get1)
 
-route.get('/', (req, res) => {
-    
-    res.status(200).send({
-        nome : req.body.nome,
-        numeroCartao : req.body.numeroCartao,
-        cvv : req.body.cvv,
-        mes : req.body.mes,
-        ano : req.body.ano
-        
-    })   
-})
+route.post('/', cartaoController.post)
 
-route.get('/:id', (req, res) => {
-    const id = req.params.id
-    res.status(200).send({
-        id
-    })
-})
+route.put('/:id', cartaoController.put)
 
-route.post('/', (req, res) => {
-   const cartao = {
-        nome : req.body.nome,
-        numeroCartao : req.body.numeroCartao,
-        cvv : req.body.cvv,
-        mes : req.body.mes,
-        ano : req.body.ano
-    }
-    res.status(201).send({
-        cartao
-    })
-})
-
-route.put('/:teste', (req, res) => {
-    const teste = req.params.teste
-    res.status(200).send({
-        message : {
-            teste : `Testando ${teste}`
-        }
-    })
-})
-
-route.delete('/', (req,res) => {
-    res.status(200).send({
-        message: {
-            teste : 'Teste DELETE'
-        }
-    })
-})
+route.delete('/:id', cartaoController.delete)
 
 module.exports = route;
 
