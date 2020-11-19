@@ -3,11 +3,22 @@ const route = express.Router()
 
 
 route.get('/', (req, res) => {
+    
     res.status(200).send({
-        message: {
-            teste: 'Testando GET'
-        }
+        nome : req.body.nome,
+        numeroCartao : req.body.numeroCartao,
+        cvv : req.body.cvv,
+        mes : req.body.mes,
+        ano : req.body.ano
+        
     })   
+})
+
+route.get('/:id', (req, res) => {
+    const id = req.params.id
+    res.status(200).send({
+        id
+    })
 })
 
 route.post('/', (req, res) => {
