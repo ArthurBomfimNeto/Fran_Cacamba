@@ -3,13 +3,11 @@ const USER = require('../models/user.model')
 exports.get = async (req, res) => {
     USER.find()
         .then(resultado => {
-            res.status(200).send({
-                resultado
-            })
-                .catch(err => {
-                    res.status(500)
-                    return res.send({ error: err })
-                })
+            res.status(200).send({ resultado })
+        })
+        .catch(err => {
+            res.status(500)
+            return res.send({ error: err })
         })
 }
 
@@ -71,9 +69,10 @@ exports.delete = async (req, res) => {
                 message: 'Removido com sucesso',
                 resultado
             })
-                .catch(err => {
-                    res.status(500)
-                    return res.send({ error: err })
-                })
         })
+        .catch(err => {
+            res.status(500)
+            return res.send({ error: err })
+        })
+
 }

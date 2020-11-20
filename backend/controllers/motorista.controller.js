@@ -82,7 +82,7 @@ exports.put = async (req, res) => {
         })
 }
 
-exports.delete = async  (req, res) => {
+exports.delete = async (req, res) => {
     MOTORISTA.deleteOne({ _id: req.params.id })
         .then(resultado => {
             res.status(202).send({

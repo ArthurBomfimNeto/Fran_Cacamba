@@ -3,9 +3,7 @@ const CARTAO = require('../models/cartao.model')
 exports.get = async (req, res) => {
     CARTAO.find()
         .then(resultado => {
-            res.status(200).send({
-                resultado
-            })
+            res.status(200).send({ resultado })
         })
         .catch(err => {
             res.status(500)
@@ -16,9 +14,7 @@ exports.get = async (req, res) => {
 exports.get1 = async (req, res) => {
     CARTAO.findById(req.params.id)
         .then(resultado => {
-            res.status(200).send({
-                resultado
-            })
+            res.status(200).send({ resultado })
         })
         .catch(err => {
             res.status(500)
@@ -45,7 +41,7 @@ exports.post = async (req, res) => {
         })
 }
 
-exports.put = async  (req, res) => {
+exports.put = async (req, res) => {
     const id = req.params.id
     CARTAO.updateOne({ _id: id }, {
         nome: req.body.nome,
@@ -82,6 +78,6 @@ exports.delete = async (req, res) => {
         })
         .catch(err => {
             res.status(500)
-            return res.send({error:err})
+            return res.send({ error: err })
         })
 }
