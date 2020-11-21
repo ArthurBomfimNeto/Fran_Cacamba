@@ -11,6 +11,7 @@ const ordemServico = new Schema({
     residuo : {type:String, required:true},
     quantidade : {type:String, required:true},
     valor : {type:String, required:true},
+    cacamba: {type: Schema.Types.ObjectId, ref :'cacamba'}
 })
 
 module.exports = mongoose.model('ordemServico', ordemServico)
