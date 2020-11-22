@@ -8,6 +8,7 @@ let cacambaSchema = new Schema({
     valor: {type:Number, required: true},
     residuo: {type:String, required:true},
     tamanho: {type:Number, required: true},
+    status: {type:Boolean,required: true, default: false},
     user : {type: Schema.Types.ObjectId, ref:'user'}
 })// nomeou a coleção 
 
