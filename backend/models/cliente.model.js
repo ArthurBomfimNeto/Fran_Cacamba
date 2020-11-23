@@ -10,8 +10,8 @@ const clienteSchema = new Schema({
     rua: {type: String, required: true},
     bairro: {type:String, required:true} ,
     numeroCasa: {type:String, required:true} ,
-    cep: {type:String, required:true},
-    user: {type: Schema.Types.ObjectId, ref: 'user'}
+    cep: {type:String, required:true}
+  //  user: {type: Schema.Types.ObjectId, ref: 'user'}
 })
 
 module.exports = mongoose.model('cliente', clienteSchema)

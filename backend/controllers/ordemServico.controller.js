@@ -5,7 +5,7 @@ exports.get = async (req, res) => {
         .populate('cacamba')
         .exec()
         .then(resultado => {
-            res.status(200).send({ resultado })
+            res.status(200).send(resultado)
         })
         .catch(err => {
             res.status(500)
@@ -18,7 +18,7 @@ exports.get1 = async (req, res) => {
         .populate('cacamba')
         .exec()
         .then(resultado => {
-            res.status(200).send({ resultado })
+            res.status(200).send(resultado)
         })
         .catch(err => {
             res.status(500)
@@ -42,7 +42,7 @@ exports.post = async (req, res) => {
     const novo = new OS(ordemServico)
     novo.save()
         .then(() => {
-            res.status(201).send({ ordemServico })
+            res.status(201).send(ordemServico)
         })
         .catch(err => {
             res.status(500)

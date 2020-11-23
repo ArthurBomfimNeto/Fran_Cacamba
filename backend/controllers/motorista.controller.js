@@ -3,7 +3,7 @@ const MOTORISTA = require('../models/motorista.model')
 exports.get = async (req, res) => {
     MOTORISTA.find()
         .then(resultado => {
-            res.status(200).send({ resultado })
+            res.status(200).send(resultado)
         })
         .catch(err => {
             res.status(500)
@@ -14,7 +14,7 @@ exports.get = async (req, res) => {
 exports.get1 = async (req, res) => {
     MOTORISTA.findById(req.params.id)
         .then(resultado => {
-            res.status(200).send({ resultado })
+            res.status(200).send(resultado)
         })
         .catch(err => {
             res.status(500)

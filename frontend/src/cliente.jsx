@@ -1,5 +1,5 @@
 import React ,{Component} from 'react'
-import CacambaForm from './CacambaForm'
+import ClienteForm from './ClienteForm'
 
 
 export default class Cacamba extends Component{
@@ -7,7 +7,7 @@ export default class Cacamba extends Component{
     render(){
         return (
             <div>
-               <CacambaForm/>
+               <ClienteForm/>
             </div>
             
 

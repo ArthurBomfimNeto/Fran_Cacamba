@@ -3,7 +3,7 @@ const USER = require('../models/user.model')
 exports.get = async (req, res) => {
     USER.find()
         .then(resultado => {
-            res.status(200).send({ resultado })
+            res.status(200).send(resultado)
         })
         .catch(err => {
             res.status(500)
@@ -14,9 +14,9 @@ exports.get = async (req, res) => {
 exports.get1 = async (req, res) => {
     USER.findById(req.params.id)
         .then(resultado => {
-            res.status(200).send({
+            res.status(200).send(
                 resultado
-            })
+            )
                 .catch(err => {
                     res.status(500)
                     return res.send({ error: err })
@@ -32,7 +32,7 @@ exports.post = async (req, res) => {
     const novo = new USER(user)
     novo.save()
         .then(() => {
-            res.status(500).send({ user })
+            res.status(500).send(user)
         })
         .catch(err => {
             res.status(500)

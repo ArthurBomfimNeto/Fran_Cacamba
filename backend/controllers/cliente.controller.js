@@ -2,10 +2,10 @@ const CLIENTE = require('../models/cliente.model')
 
 exports.get = async (req, res, next) => {
     CLIENTE.find()
-        .populate('user')
-        .exec()
+        //.populate('user')
+        //.exec()
         .then(resultado => {
-            res.status(200).send({ resultado })
+            res.status(200).send(resultado)
         })
         .catch(err => {
             res.status(500)
@@ -16,7 +16,7 @@ exports.get = async (req, res, next) => {
 exports.get1 = async (req, res) => {
     CLIENTE.findById(req.params.id)
         .then(resultado => {
-            res.status(200).send({ resultado })
+            res.status(200).send(resultado)
         })
         .catch(err => {
             res.status(500)
@@ -34,12 +34,12 @@ exports.post = async (req, res) => {
         bairro: req.body.bairro,
         numeroCasa: req.body.numeroCasa,
         cep: req.body.cep,
-        user: req.body.user
+        //user: req.body.user
     }
     const novo = new CLIENTE(cliente)
     novo.save()
         .then(() => {
-            res.status(201).send({ cliente })
+            res.status(201).send(cliente)
         })
         .catch(err => {
             res.status(500)

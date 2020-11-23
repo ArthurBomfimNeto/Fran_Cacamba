@@ -9,7 +9,7 @@ export default class Menu extends Component {
             <nav className="navbar navbar-inverse" >
                 <div className="container">
                     <div className="navbar-header">
-                        <a className="nav-bar-brand" href="#">
+                        <a className="nav-bar-brand" href="/cacamba">
                             <i className= "fa-fa-calendar-check-o"></i> FrancaCacamba  
                         </a>
                     </div>
@@ -17,7 +17,9 @@ export default class Menu extends Component {
                     <div id="navbar" className="navbar-collapse">
                         <ul className="nav navbar-nav">
                             <li> <a href="/cacamba"> Cacamba</a></li>
-                            <li> <a href="/about"> Sobre </a></li>
+                            <li> <a href="/motorista"> Motorista</a></li>
+                            <li> <a href="/cliente"> Cliente </a></li>
+                            <li> <a href="/user"> Login </a></li>
                         </ul>
                     </div>
 

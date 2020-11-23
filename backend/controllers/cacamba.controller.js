@@ -2,10 +2,8 @@ const CACAMBA = require('../models/cacamba.model')
 
 exports.get = async (req, res, next) => {
     CACAMBA.find()
-        .populate('user')
-        .exec()
         .then(cacambas => {
-            res.status(200).json({ cacambas })
+            res.status(200).json(cacambas)
         })
         .catch(err => {
             res.status(500)
@@ -15,38 +13,38 @@ exports.get = async (req, res, next) => {
 
 exports.get1 = async (req, res, next) => {
     CACAMBA.findById(req.params.id)
-        .populate('user')
-        .exec()
         .then(cacamba => {
-            res.status(200).json({ cacamba })
+            res.status(200).json(cacamba)
         })
         .catch(err => {
             res.status(500)
             return req.send({ error: err })
         })
-
 }
 
 exports.post = async (req, res, next) => {
 
     const cacamba = {
+
         codCacamba: req.body.codCacamba,
         valor: req.body.valor,
         residuo: req.body.residuo,
         tamanho: req.body.tamanho,
-        user: req.body.user
+        status: req.body.status
+        
     }
     //inserção no Banco CACAMBA os dados da cacamba
     var novo = new CACAMBA(cacamba)
     novo.save()
         .then(() => {// salva no banco de dados 
             //envia resultado para ususario 
-            res.status(201).send({ cacamba });
+            res.status(201).send(cacamba);
         })
         .catch(err => {
             res.status(500)
             return req.send({ error: err })
         })
+        
 }
 
 exports.put = async (req, res, next) => {
@@ -54,7 +52,9 @@ exports.put = async (req, res, next) => {
         codCacamba: req.body.codCacamba,
         valor: req.body.valor,
         residuo: req.body.residuo,
-        tamanho: req.body.tamanho
+        tamanho: req.body.tamanho,
+        status: req.body.status
+
     })
         .then(resultado => {
             res.status(202).send({
@@ -63,7 +63,9 @@ exports.put = async (req, res, next) => {
                     codCacamba: req.body.codCacamba,
                     valor: req.body.valor,
                     residuo: req.body.residuo,
-                    tamanho: req.body.tamanho
+                    tamanho: req.body.tamanho,
+                    status: req.body.status
+
                 }
             })
         })

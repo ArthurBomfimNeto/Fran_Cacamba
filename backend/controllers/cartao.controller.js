@@ -3,7 +3,7 @@ const CARTAO = require('../models/cartao.model')
 exports.get = async (req, res) => {
     CARTAO.find()
         .then(resultado => {
-            res.status(200).send({ resultado })
+            res.status(200).send(resultado)
         })
         .catch(err => {
             res.status(500)
@@ -14,7 +14,7 @@ exports.get = async (req, res) => {
 exports.get1 = async (req, res) => {
     CARTAO.findById(req.params.id)
         .then(resultado => {
-            res.status(200).send({ resultado })
+            res.status(200).send(resultado)
         })
         .catch(err => {
             res.status(500)
@@ -33,7 +33,7 @@ exports.post = async (req, res) => {
     const novo = new CARTAO(cartao)
     novo.save()
         .then(() => {
-            res.status(201).send({ cartao })
+            res.status(201).send(cartao)
         })
         .catch(err => {
             res.status(500)
